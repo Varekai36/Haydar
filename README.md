@@ -1,6 +1,7 @@
 # Die Bratküche Erlangen – Website
 
-Website für **Die Bratküche**: Smash Burger & Loaded Fries, Lachnerstraße 2, 91058 Erlangen.
+Website für **Die Bratküche**: Smash Burger & Loaded Fries, Lachnerstraße 2, 91058 Erlangen-Tennenlohe.
+Öffnungszeiten: Mo–Do 11–15 & 17–20 Uhr, Fr 11–15 Uhr. Telefon: 0177 6564204.
 
 Die Seite besteht nur aus HTML, CSS und etwas JavaScript. Es gibt keinen Build-Schritt und keine Abhängigkeiten.
 Sie läuft direkt auf GitHub Pages oder bei jedem anderen Webhoster.
@@ -19,9 +20,8 @@ Sie läuft direkt auf GitHub Pages oder bei jedem anderen Webhoster.
 
 ## Noch offen
 
-- [ ] **Impressum:** Inhaber-Name, Telefon, E-Mail und gegebenenfalls USt-IdNr. eintragen, dann den gelben Hinweis „Vorlage“ löschen.
-- [ ] **Datenschutz:** Inhaber-Name, Telefon und E-Mail eintragen und den Hinweis löschen. Bitte rechtlich prüfen lassen.
-- [ ] **Telefonnummer auf der Startseite (optional):** Unter „Anfahrt & Kontakt“ steht ein auskommentierter Block (`<!-- ANPASSEN: Telefonnummer …`). Nummer eintragen und die Kommentar-Zeichen entfernen.
+- [ ] **Impressum:** Inhaber-Name, E-Mail und gegebenenfalls USt-IdNr. eintragen, dann den gelben Hinweis „Vorlage“ löschen.
+- [ ] **Datenschutz:** Inhaber-Name und E-Mail eintragen und den Hinweis löschen. Bitte rechtlich prüfen lassen.
 - [ ] **Eigene Domain:** Sobald die Domain feststeht, bei `og:image` die volle Adresse eintragen, z. B. `https://www.die-bratkueche.de/assets/img/og-image.jpg`. Dann zeigen WhatsApp, Instagram und andere Dienste beim Teilen das Logo als Vorschaubild.
 
 ## Speisekarte pflegen
@@ -67,7 +67,7 @@ Daraus berechnet die Seite automatisch, in deutscher Zeit:
 - „Mittagspause · ab 17:00 Uhr wieder offen“
 - „Geschlossen · öffnet morgen um 11:00 Uhr“
 
-Die Zeiten im Kopf der Seite („Mo–Fr 11–15 & 17–20 Uhr“) und in den strukturierten Daten im `<head>` bitte passend mitändern.
+Die Zeiten im Kopf der Seite („Mo–Do 11–15 & 17–20 Uhr · Fr 11–15 Uhr“) und in den strukturierten Daten im `<head>` bitte passend mitändern.
 
 ## Fotos austauschen
 

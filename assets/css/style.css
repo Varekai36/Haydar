@@ -346,6 +346,8 @@ h1, h2, h3, h4 { margin: 0; font-weight: 600; line-height: 1.1; text-wrap: balan
 }
 .hero-facts li { display: inline-flex; align-items: center; gap: 8px; }
 .hero-facts svg { width: 18px; height: 18px; color: var(--gold); }
+.hero-facts a { color: var(--text); font-weight: 600; text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
+.hero-facts a:hover { color: var(--gold-light); }
 
 .hero-visual { position: relative; margin: 0; }
 .hero-visual img {
