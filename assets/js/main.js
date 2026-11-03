@@ -1,4 +1,4 @@
-/* Bratküche – kleine Helfer: Mobilmenü, Speisekarten-Filter, „Jetzt geöffnet“-Anzeige */
+/* Die Bratküche – kleine Helfer: Mobilmenü und „Jetzt geöffnet“-Anzeige */
 (function () {
   "use strict";
 
@@ -9,7 +9,6 @@
   var nav = document.getElementById("hauptnavigation");
 
   function setMenu(open) {
-    if (!toggle || !nav) return;
     toggle.setAttribute("aria-expanded", String(open));
     toggle.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
     nav.classList.toggle("is-open", open);
@@ -25,36 +24,33 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") setMenu(false);
     });
-    window.matchMedia("(min-width: 881px)").addEventListener("change", function (mq) {
-      if (mq.matches) setMenu(false);
-    });
+    var wide = window.matchMedia("(min-width: 901px)");
+    var onWide = function () { if (wide.matches) setMenu(false); };
+    if (wide.addEventListener) wide.addEventListener("change", onWide);
   }
 
-  /* ---------- Speisekarte filtern ---------- */
-  var chips = document.querySelectorAll(".chip[data-filter]");
-  var grid = document.querySelector(".menu-grid");
-  var groups = document.querySelectorAll(".menu-group[data-cat]");
-
-  chips.forEach(function (chip) {
-    chip.addEventListener("click", function () {
-      var filter = chip.getAttribute("data-filter");
-      chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c === chip)); });
-      groups.forEach(function (g) {
-        g.hidden = filter !== "alle" && g.getAttribute("data-cat") !== filter;
-      });
-      if (grid) grid.classList.toggle("is-filtered", filter !== "alle");
-    });
-  });
-
   /* ---------- Öffnungszeiten & Status ----------
-     Die Zeiten werden aus der Tabelle (#zeiten) gelesen – dort anpassen.
+     Die Zeiten stehen in der Tabelle (#zeiten) im Attribut data-hours,
+     z. B. data-hours="11:00-15:00,17:00-20:00". Dort anpassen.
      Gerechnet wird immer in deutscher Zeit (Europe/Berlin). */
   var DAY_NAMES = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
 
   function toMinutes(hhmm) {
-    var p = String(hhmm || "").split(":");
+    var p = String(hhmm || "").trim().split(":");
     if (p.length !== 2) return null;
-    return parseInt(p[0], 10) * 60 + parseInt(p[1], 10);
+    var m = parseInt(p[0], 10) * 60 + parseInt(p[1], 10);
+    return isNaN(m) ? null : m;
+  }
+
+  function parseHours(attr) {
+    if (!attr) return [];
+    return attr.split(",").map(function (range) {
+      var parts = range.split("-");
+      var open = toMinutes(parts[0]);
+      var close = toMinutes(parts[1]);
+      if (open === null || close === null) return null;
+      return { open: open, close: close, openText: parts[0].trim(), closeText: parts[1].trim() };
+    }).filter(Boolean).sort(function (a, b) { return a.open - b.open; });
   }
 
   function berlinNow() {
@@ -76,46 +72,50 @@
     }
   }
 
+  function computeStatus(schedule, now) {
+    var today = schedule[now.day] || [];
+    var i;
+
+    for (i = 0; i < today.length; i++) {
+      if (now.minutes >= today[i].open && now.minutes < today[i].close) {
+        return { state: "open", text: "Jetzt geöffnet · bis " + today[i].closeText + " Uhr" };
+      }
+    }
+    for (i = 0; i < today.length; i++) {
+      if (now.minutes < today[i].open) {
+        if (i > 0) {
+          return { state: "break", text: "Mittagspause · ab " + today[i].openText + " Uhr wieder offen" };
+        }
+        return { state: "closed", text: "Geschlossen · öffnet heute um " + today[i].openText + " Uhr" };
+      }
+    }
+    for (i = 1; i <= 7; i++) {
+      var d = (now.day + i) % 7;
+      if (schedule[d] && schedule[d].length) {
+        var when = i === 1 ? "morgen" : "am " + DAY_NAMES[d];
+        return { state: "closed", text: "Geschlossen · öffnet " + when + " um " + schedule[d][0].openText + " Uhr" };
+      }
+    }
+    return { state: "closed", text: "Gerade geschlossen" };
+  }
+
   var rows = document.querySelectorAll(".hours-table tr[data-day]");
   if (rows.length) {
     var schedule = {};
     rows.forEach(function (row) {
-      var day = parseInt(row.getAttribute("data-day"), 10);
-      var open = toMinutes(row.getAttribute("data-open"));
-      var close = toMinutes(row.getAttribute("data-close"));
-      schedule[day] = open !== null && close !== null
-        ? { open: open, close: close, openText: row.getAttribute("data-open"), closeText: row.getAttribute("data-close") }
-        : null;
+      schedule[parseInt(row.getAttribute("data-day"), 10)] = parseHours(row.getAttribute("data-hours"));
     });
 
     var updateStatus = function () {
       var now = berlinNow();
-      var today = schedule[now.day];
-      var isOpen = false;
-      var text;
-
-      if (today && now.minutes >= today.open && now.minutes < today.close) {
-        isOpen = true;
-        text = "Jetzt geöffnet · bis " + today.closeText + " Uhr";
-      } else if (today && now.minutes < today.open) {
-        text = "Gerade geschlossen · öffnet heute um " + today.openText + " Uhr";
-      } else {
-        text = "Gerade geschlossen";
-        for (var i = 1; i <= 7; i++) {
-          var d = (now.day + i) % 7;
-          if (schedule[d]) {
-            var when = i === 1 ? "morgen" : "am " + DAY_NAMES[d];
-            text = "Gerade geschlossen · öffnet " + when + " um " + schedule[d].openText + " Uhr";
-            break;
-          }
-        }
-      }
+      var status = computeStatus(schedule, now);
 
       document.querySelectorAll("[data-status]").forEach(function (el) {
-        el.classList.toggle("is-open", isOpen);
-        el.classList.toggle("is-closed", !isOpen);
+        el.classList.toggle("is-open", status.state === "open");
+        el.classList.toggle("is-break", status.state === "break");
+        el.classList.toggle("is-closed", status.state === "closed");
         var t = el.querySelector(".status-text");
-        if (t) t.textContent = text;
+        if (t) t.textContent = status.text;
       });
 
       rows.forEach(function (row) {
@@ -125,6 +125,9 @@
 
     updateStatus();
     setInterval(updateStatus, 60 * 1000);
+
+    /* Für Tests: window.__bratkuecheStatus({ day: 1, minutes: 16 * 60 }) */
+    window.__bratkuecheStatus = function (now) { return computeStatus(schedule, now); };
   }
 
   /* ---------- Jahr in der Fußzeile ---------- */

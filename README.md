@@ -1,61 +1,80 @@
-# Bratküche – Website
+# Die Bratküche Erlangen – Website
 
-Eine Website für die **Bratküche** auf einer einzigen Seite. Sie besteht nur aus HTML, CSS und etwas JavaScript.
-Es gibt keinen Build-Schritt und keine Abhängigkeiten. Die Seite läuft direkt auf GitHub Pages oder bei jedem anderen Webhoster.
+Website für **Die Bratküche**: Smash Burger & Loaded Fries, Lachnerstraße 2, 91058 Erlangen.
+
+Die Seite besteht nur aus HTML, CSS und etwas JavaScript. Es gibt keinen Build-Schritt und keine Abhängigkeiten.
+Sie läuft direkt auf GitHub Pages oder bei jedem anderen Webhoster.
 
 ## Inhalt
 
 | Datei | Zweck |
 |---|---|
-| `index.html` | Startseite mit Speisekarte, Über uns, Öffnungszeiten und Kontakt |
-| `impressum.html` | Impressum (Vorlage) |
+| `index.html` | Startseite: Burger, Loaded Fries, Fotos, Über uns, Öffnungszeiten & Anfahrt |
+| `impressum.html` | Impressum (Vorlage, Adresse schon eingetragen) |
 | `datenschutz.html` | Datenschutzerklärung (Vorlage) |
 | `assets/css/style.css` | Gestaltung: Farben und Schriften stehen oben in `:root` |
-| `assets/js/main.js` | Mobilmenü, Filter der Speisekarte, Anzeige „Jetzt geöffnet“ |
-| `assets/fonts/` | Lokal gespeicherte Schriften (Fraunces, DM Sans, Lizenz SIL OFL). Es wird nichts von Google geladen. |
-| `assets/img/favicon.svg` | Symbol im Browser-Tab |
+| `assets/js/main.js` | Mobilmenü und Live-Anzeige „Jetzt geöffnet / Mittagspause / Geschlossen“ |
+| `assets/img/` | Fotos, Logo und Icons (verkleinert, ohne Standortdaten) |
+| `assets/fonts/` | Lokal gespeicherte Schriften (Bebas Neue, Fraunces, DM Sans, Caveat, Lizenz SIL OFL). Es wird nichts von Google geladen. |
 
-## Vor dem Veröffentlichen anpassen
+## Noch offen
 
-Alle Stellen sind in `index.html` mit `<!-- ANPASSEN -->` markiert.
+- [ ] **Impressum:** Inhaber-Name, Telefon, E-Mail und gegebenenfalls USt-IdNr. eintragen, dann den gelben Hinweis „Vorlage“ löschen.
+- [ ] **Datenschutz:** Inhaber-Name, Telefon und E-Mail eintragen und den Hinweis löschen. Bitte rechtlich prüfen lassen.
+- [ ] **Telefonnummer auf der Startseite (optional):** Unter „Anfahrt & Kontakt“ steht ein auskommentierter Block (`<!-- ANPASSEN: Telefonnummer …`). Nummer eintragen und die Kommentar-Zeichen entfernen.
+- [ ] **Eigene Domain:** Sobald die Domain feststeht, bei `og:image` die volle Adresse eintragen, z. B. `https://www.die-bratkueche.de/assets/img/og-image.jpg`. Dann zeigen WhatsApp, Instagram und andere Dienste beim Teilen das Logo als Vorschaubild.
 
-- [ ] **Adresse:** `Musterstraße 12, 12345 Musterstadt`. Kommt im Kontaktbereich, im Link „Route planen“, in den strukturierten Daten im `<head>` und in den Rechtstexten vor.
-- [ ] **Telefon:** `0123 456789` bzw. `tel:+49123456789`. Kommt in der Kopfzeile, im Hero, im Kontaktbereich und in den Rechtstexten vor.
-- [ ] **E-Mail:** `kontakt@ihre-domain.de`
-- [ ] **Speisekarte:** Gerichte, Beschreibungen und Preise. Die aktuellen Preise sind nur **Beispielwerte**.
-- [ ] **Mittagstisch:** Tage, Uhrzeit und Preis, oder den Block `<aside class="lunch">` löschen.
-- [ ] **Öffnungszeiten:** in der Tabelle unter `id="zeiten"` (siehe unten).
-- [ ] **Über uns:** eure eigene Geschichte.
-- [ ] **Impressum & Datenschutz:** alle Angaben in `[eckigen Klammern]` ersetzen und danach den gelben Hinweis „Vorlage“ löschen. Die Texte sind eine Vorlage und keine Rechtsberatung.
+## Speisekarte pflegen
 
-### Öffnungszeiten ändern
+Die Gerichte stehen direkt in `index.html`, jeweils als `<li class="item">`.
 
-Jede Zeile der Tabelle hat drei Angaben:
+**Ein Gericht „Bald verfügbar“ freischalten**, z. B. den Grünschnabel:
+
+1. Bei `<li class="item is-soon">` das `is-soon` entfernen, sodass dort `<li class="item">` steht.
+2. `<span class="soon">Bald verfügbar</span>` durch die Preise ersetzen:
 
 ```html
-<tr data-day="2" data-open="11:00" data-close="21:00"><th scope="row">Dienstag</th><td>11:00 – 21:00</td></tr>
+<div class="prices">
+  <span class="price-box"><small>Double</small>10,90&nbsp;€</span>
+  <span class="price-box"><small>Single</small>7,90&nbsp;€</span>
+</div>
+```
+
+Bei Pommes mit nur einem Preis:
+
+```html
+<div class="prices"><span class="price-box price-single">8,90&nbsp;€</span></div>
+```
+
+**Markierungen:** `<span class="tag tag-hot">Scharf</span>` oder `<span class="tag tag-veg">Veggie</span>` hinter den Namen setzen.
+Handschriftliche Notiz: `<p class="note">Nur für Mutige!</p>`.
+
+## Öffnungszeiten ändern
+
+Die Zeiten stehen in der Tabelle unter `id="zeiten"`:
+
+```html
+<tr data-day="1" data-hours="11:00-15:00,17:00-20:00"><th scope="row">Montag</th><td><span>11:00–15:00</span> <span>17:00–20:00</span></td></tr>
 ```
 
 - `data-day`: 0 = Sonntag, 1 = Montag, …, 6 = Samstag
-- `data-open` und `data-close` im Format `HH:MM`
-- Ruhetag: `data-open` und `data-close` weglassen
+- `data-hours`: Zeitfenster im Format `HH:MM-HH:MM`, mehrere durch Komma getrennt
+- Ruhetag: `data-hours` weglassen und in die Zelle `Geschlossen` schreiben
 
-Aus diesen Angaben berechnet die Seite automatisch „Jetzt geöffnet · bis 21:00 Uhr“ bzw. „Gerade geschlossen · öffnet morgen um …“.
-Gerechnet wird immer in deutscher Zeit. Den sichtbaren Text in `<td>` bitte passend mitändern.
+Daraus berechnet die Seite automatisch, in deutscher Zeit:
 
-### Eigene Fotos einbinden
+- „Jetzt geöffnet · bis 15:00 Uhr“
+- „Mittagspause · ab 17:00 Uhr wieder offen“
+- „Geschlossen · öffnet morgen um 11:00 Uhr“
 
-Fotos in `assets/img/` ablegen und an der gewünschten Stelle einbinden, zum Beispiel:
+Die Zeiten im Kopf der Seite („Mo–Fr 11–15 & 17–20 Uhr“) und in den strukturierten Daten im `<head>` bitte passend mitändern.
 
-```html
-<img src="assets/img/schnitzel.jpg" alt="Schnitzel mit Bratkartoffeln" width="800" height="600" loading="lazy">
-```
+## Fotos austauschen
 
-Am besten verkleinert als JPG oder WebP, ungefähr 1600 px breit und unter 300 KB.
+Neue Fotos in `assets/img/` ablegen. Am besten vorher verkleinern (etwa 1000–1800 px breit, JPG oder WebP) und die Standortdaten aus dem Foto entfernen.
+Ein Foto von den Loaded Fries würde gut in den Bereich „Loaded Fries“ passen.
 
 ## Lokal ansehen
-
-`index.html` einfach im Browser öffnen. Damit die Schriften auch lokal korrekt laden, besser einen kleinen Server starten:
 
 ```bash
 python3 -m http.server 8000
@@ -68,4 +87,4 @@ python3 -m http.server 8000
 2. Im Repository auf **Settings → Pages** gehen.
 3. Unter **Build and deployment** als Quelle **Deploy from a branch** wählen, dann Branch `main` und Ordner `/ (root)`.
 4. Nach ungefähr einer Minute ist die Seite unter `https://<benutzername>.github.io/<repository>/` erreichbar.
-5. Optional kann man dort auch eine eigene Domain eintragen, z. B. `www.bratkueche-musterstadt.de`.
+5. Optional dort die eigene Domain eintragen.

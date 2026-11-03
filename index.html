@@ -3,36 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bratküche – Heiß aus der Pfanne</title>
-  <!-- ANPASSEN: Beschreibung für Google & Co. -->
-  <meta name="description" content="Bratküche: Bratwurst, Schnitzel, Brathähnchen und knusprige Bratkartoffeln – frisch auf Bestellung gebraten. Vor Ort essen oder mitnehmen.">
-  <meta name="theme-color" content="#1D1815">
-  <meta property="og:title" content="Bratküche – Heiß aus der Pfanne">
-  <meta property="og:description" content="Bratwurst, Schnitzel und knusprige Bratkartoffeln – frisch auf Bestellung gebraten.">
+  <title>Die Bratküche Erlangen – Smash Burger &amp; Loaded Fries</title>
+  <meta name="description" content="Smash Burger aus regionalem Rindfleisch und frisch frittierte Loaded Fries in Erlangen. Die Bratküche, Lachnerstraße 2 – Mo–Fr 11–15 &amp; 17–20 Uhr.">
+  <meta name="theme-color" content="#0C0A08">
+  <meta property="og:title" content="Die Bratküche Erlangen – Smash Burger &amp; Loaded Fries">
+  <meta property="og:description" content="Regionales Rindfleisch, frisch gesmasht. Dazu Hauspommes – pur oder richtig beladen. Lachnerstraße 2, Erlangen.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <link rel="icon" href="assets/img/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script>document.documentElement.classList.add("js")</script>
 
-  <!-- ANPASSEN: Strukturierte Daten für Suchmaschinen (Adresse, Telefon) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    "name": "Bratküche",
-    "servesCuisine": "Deutsche Küche",
+    "name": "Die Bratküche",
+    "description": "Smash Burger und Loaded Fries in Erlangen",
+    "servesCuisine": ["Burger", "Pommes"],
     "priceRange": "€",
-    "telephone": "+49 123 456789",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Musterstraße 12",
-      "postalCode": "12345",
-      "addressLocality": "Musterstadt",
+      "streetAddress": "Lachnerstraße 2",
+      "postalCode": "91058",
+      "addressLocality": "Erlangen",
       "addressCountry": "DE"
-    }
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "11:00", "closes": "15:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "17:00", "closes": "20:00" }
+    ]
   }
   </script>
 </head>
@@ -42,27 +46,21 @@
   <!-- ===================== KOPFZEILE ===================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Bratküche – zum Seitenanfang">
-        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
-          <circle cx="16" cy="23" r="12" fill="currentColor"/>
-          <circle cx="16" cy="23" r="8.5" fill="#1D1815"/>
-          <rect x="26" y="20.5" width="13" height="5" rx="2.5" fill="currentColor"/>
-          <path d="M11 9c-2-2.5 2-3.5 0-6.5M16.5 10c-2-2.5 2-3.5 0-6.5M22 9c-2-2.5 2-3.5 0-6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-        </svg>
-        <span class="brand-name">Bratküche</span>
+      <a class="brand" href="#top" aria-label="Die Bratküche – zum Seitenanfang">
+        <img class="brand-logo" src="assets/img/logo-96.png" width="44" height="44" alt="">
+        <span class="brand-name"><small>Die</small> Bratküche</span>
       </a>
 
       <nav class="nav" id="hauptnavigation" aria-label="Hauptnavigation">
-        <a href="#speisekarte">Speisekarte</a>
+        <a href="#burger">Burger</a>
+        <a href="#loaded-fries">Loaded Fries</a>
         <a href="#ueber-uns">Über uns</a>
-        <a href="#zeiten">Öffnungszeiten</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="#besuch">Öffnungszeiten</a>
       </nav>
 
-      <!-- ANPASSEN: Telefonnummer (tel:-Link ohne Leerzeichen, mit +49) -->
-      <a class="btn btn-flame btn-small header-call" href="tel:+49123456789">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
-        <span>Anrufen</span>
+      <a class="btn btn-gold btn-small header-cta" href="https://www.google.com/maps/search/?api=1&amp;query=Die%20Bratk%C3%BCche%2C%20Lachnerstra%C3%9Fe%202%2C%2091058%20Erlangen" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>
+        <span>Route</span>
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptnavigation" aria-label="Menü öffnen">
@@ -79,377 +77,407 @@
         <div class="hero-copy">
           <p class="status" data-status aria-live="polite">
             <span class="status-dot" aria-hidden="true"></span>
-            <a class="status-text" href="#zeiten">Öffnungszeiten ansehen</a>
+            <a class="status-text" href="#besuch">Mo–Fr 11–15 &amp; 17–20 Uhr</a>
           </p>
-          <h1>Heiß aus der <em>Pfanne.</em></h1>
+          <p class="kicker">Die Bratküche · Erlangen</p>
+          <h1 class="hero-title">Smash Burger <span>&amp; Loaded Fries</span></h1>
           <p class="lead">
-            Bratwurst, Schnitzel, Brathähnchen und knusprige Bratkartoffeln –
-            frisch auf Bestellung gebraten, ehrlich gewürzt und mit Liebe serviert.
+            Regionales Rindfleisch, auf der heißen Platte flach gedrückt und schön kross gebraten.
+            Dazu Hauspommes – frisch frittiert, goldgelb und knusprig.
           </p>
           <div class="hero-cta">
-            <a class="btn btn-flame" href="#speisekarte">Zur Speisekarte</a>
-            <!-- ANPASSEN: Telefonnummer -->
-            <a class="btn btn-ghost" href="tel:+49123456789">Bestellen: 0123 456789</a>
+            <a class="btn btn-gold" href="#burger">Zur Speisekarte</a>
+            <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Die%20Bratk%C3%BCche%2C%20Lachnerstra%C3%9Fe%202%2C%2091058%20Erlangen" target="_blank" rel="noopener">Route planen</a>
           </div>
           <ul class="hero-facts">
-            <li>Vor Ort essen</li>
-            <li>Zum Mitnehmen</li>
-            <li>Mittagstisch Di–Fr</li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>
+              Lachnerstraße 2, 91058 Erlangen
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+              Mo–Fr 11–15 &amp; 17–20 Uhr
+            </li>
           </ul>
         </div>
 
-        <div class="hero-art" aria-hidden="true">
-          <svg viewBox="0 0 520 450" class="pan">
-            <defs>
-              <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0" stop-color="#E8590C" stop-opacity=".5"/>
-                <stop offset="1" stop-color="#E8590C" stop-opacity="0"/>
-              </radialGradient>
-              <radialGradient id="panInner" cx="40%" cy="35%" r="75%">
-                <stop offset="0" stop-color="#40362f"/>
-                <stop offset=".65" stop-color="#1e1916"/>
-                <stop offset="1" stop-color="#110d0b"/>
-              </radialGradient>
-              <linearGradient id="wurst" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#D2774A"/>
-                <stop offset=".5" stop-color="#A2441F"/>
-                <stop offset="1" stop-color="#6B2810"/>
-              </linearGradient>
-              <radialGradient id="kartoffel" cx="38%" cy="32%" r="75%">
-                <stop offset="0" stop-color="#F8D98A"/>
-                <stop offset=".65" stop-color="#E6A746"/>
-                <stop offset="1" stop-color="#B8742A"/>
-              </radialGradient>
-            </defs>
-
-            <circle cx="230" cy="262" r="220" fill="url(#glow)"/>
-            <ellipse cx="240" cy="428" rx="175" ry="14" fill="#000" opacity=".35"/>
-
-            <!-- Griff -->
-            <g transform="rotate(-9 360 262)">
-              <rect x="352" y="246" width="164" height="32" rx="16" fill="#2b2420"/>
-              <rect x="362" y="250" width="140" height="6" rx="3" fill="#fff" opacity=".07"/>
-              <circle cx="492" cy="262" r="7" fill="#110d0b"/>
-            </g>
-
-            <!-- Pfanne -->
-            <circle cx="230" cy="262" r="162" fill="#2b2420"/>
-            <circle cx="230" cy="262" r="161" fill="none" stroke="#4d4139" stroke-width="2"/>
-            <circle cx="230" cy="262" r="140" fill="url(#panInner)"/>
-            <circle cx="230" cy="262" r="140" fill="none" stroke="#0b0807" stroke-width="4"/>
-            <ellipse cx="180" cy="200" rx="70" ry="26" fill="#fff" opacity=".04" transform="rotate(-25 180 200)"/>
-
-            <!-- Bratkartoffeln -->
-            <g stroke="#A2601F" stroke-width="2">
-              <ellipse cx="148" cy="302" rx="30" ry="22" fill="url(#kartoffel)" transform="rotate(18 148 302)"/>
-              <ellipse cx="208" cy="330" rx="32" ry="23" fill="url(#kartoffel)" transform="rotate(-10 208 330)"/>
-              <ellipse cx="272" cy="324" rx="30" ry="22" fill="url(#kartoffel)" transform="rotate(22 272 324)"/>
-              <ellipse cx="322" cy="292" rx="28" ry="21" fill="url(#kartoffel)" transform="rotate(-18 322 292)"/>
-              <ellipse cx="190" cy="372" rx="26" ry="19" fill="url(#kartoffel)" transform="rotate(8 190 372)"/>
-              <ellipse cx="258" cy="372" rx="27" ry="19" fill="url(#kartoffel)" transform="rotate(-14 258 372)"/>
-              <ellipse cx="128" cy="250" rx="24" ry="18" fill="url(#kartoffel)" transform="rotate(-30 128 250)"/>
-              <ellipse cx="338" cy="222" rx="24" ry="18" fill="url(#kartoffel)" transform="rotate(25 338 222)"/>
-            </g>
-            <g fill="#8A4A14" opacity=".35">
-              <ellipse cx="156" cy="296" rx="9" ry="5"/>
-              <ellipse cx="214" cy="336" rx="10" ry="5"/>
-              <ellipse cx="266" cy="318" rx="8" ry="4"/>
-              <ellipse cx="318" cy="298" rx="8" ry="4"/>
-              <ellipse cx="196" cy="368" rx="7" ry="4"/>
-            </g>
-
-            <!-- Bratwürste -->
-            <g transform="rotate(-12 222 212)">
-              <rect x="122" y="191" width="200" height="44" rx="22" fill="url(#wurst)"/>
-              <rect x="140" y="197" width="160" height="7" rx="3.5" fill="#fff" opacity=".22"/>
-              <g stroke="#4A1A08" stroke-width="5" stroke-linecap="round" opacity=".55">
-                <path d="M165 199l-12 30M205 199l-12 30M245 199l-12 30M285 199l-12 30"/>
-              </g>
-            </g>
-            <g transform="rotate(-3 238 266)">
-              <rect x="140" y="246" width="200" height="44" rx="22" fill="url(#wurst)"/>
-              <rect x="158" y="252" width="160" height="7" rx="3.5" fill="#fff" opacity=".22"/>
-              <g stroke="#4A1A08" stroke-width="5" stroke-linecap="round" opacity=".55">
-                <path d="M183 254l-12 30M223 254l-12 30M263 254l-12 30M303 254l-12 30"/>
-              </g>
-            </g>
-
-            <!-- Kräuter -->
-            <g fill="#7FA142">
-              <ellipse cx="176" cy="244" rx="7" ry="3.5" transform="rotate(30 176 244)"/>
-              <ellipse cx="300" cy="238" rx="7" ry="3.5" transform="rotate(-40 300 238)"/>
-              <ellipse cx="232" cy="350" rx="7" ry="3.5" transform="rotate(10 232 350)"/>
-              <ellipse cx="300" cy="350" rx="6" ry="3" transform="rotate(60 300 350)"/>
-              <ellipse cx="150" cy="340" rx="6" ry="3" transform="rotate(-20 150 340)"/>
-            </g>
-            <g fill="#5C7E2A">
-              <ellipse cx="262" cy="190" rx="6" ry="3" transform="rotate(20 262 190)"/>
-              <ellipse cx="176" cy="296" rx="6" ry="3" transform="rotate(-50 176 296)"/>
-              <ellipse cx="350" cy="262" rx="6" ry="3" transform="rotate(35 350 262)"/>
-              <ellipse cx="120" cy="282" rx="5" ry="2.5" transform="rotate(70 120 282)"/>
-            </g>
-
-            <!-- Dampf -->
-            <g fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round">
-              <path class="steam s1" d="M180 118c-22-26 22-44 0-74"/>
-              <path class="steam s2" d="M236 104c-22-26 22-44 0-74"/>
-              <path class="steam s3" d="M292 118c-22-26 22-44 0-74"/>
-            </g>
-          </svg>
-        </div>
+        <figure class="hero-visual">
+          <picture>
+            <source srcset="assets/img/burger-hero.webp" type="image/webp">
+            <img src="assets/img/burger-hero.jpg" width="1800" height="1012" alt="Smash Burger mit geschmolzenem Cheddar im Brioche-Bun, daneben Pommes" fetchpriority="high">
+          </picture>
+          <div class="badge" aria-hidden="true">
+            <span class="badge-no">Nr. 1</span>
+            <span class="badge-name">Original Smash</span>
+            <span class="badge-price">6,90</span>
+          </div>
+        </figure>
       </div>
     </section>
 
-    <!-- ===================== VORTEILE ===================== -->
-    <section class="features" aria-label="Was uns ausmacht">
-      <div class="container features-grid">
-        <article class="feature">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 2c1 3.5 5 5.5 5 10.5A5 5 0 0 1 12 18a5 5 0 0 1-5-5.5c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3.5 1-6 1-9z" fill="currentColor"/><path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <h2>Frisch gebraten</h2>
-          <p>Bei uns liegt nichts stundenlang warm. Jede Portion kommt erst auf Bestellung in die Pfanne.</p>
-        </article>
-        <article class="feature">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 10h16l-1.5 9a2 2 0 0 1-2 1.7h-9a2 2 0 0 1-2-1.7z" fill="currentColor"/><path d="M8 6c0-1.5 1-1.5 1-3M12 6c0-1.5 1-1.5 1-3M16 6c0-1.5 1-1.5 1-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-          </div>
-          <h2>Hausgemachte Soßen</h2>
-          <p>Currysoße, Jägersoße und Kräuterquark rühren wir selbst an – nach eigenem Rezept.</p>
-        </article>
-        <article class="feature">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12a1.5 1.5 0 0 1-1.5 1.4h-9A1.5 1.5 0 0 1 6 20z" fill="currentColor"/><path d="M9 10V6a3 3 0 0 1 6 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-          </div>
-          <h2>Auch zum Mitnehmen</h2>
-          <p>Kurz anrufen, bestellen und heiß abholen – perfekt für die Mittagspause oder den Feierabend.</p>
-        </article>
+    <!-- ===================== LAUFBAND ===================== -->
+    <div class="band" aria-hidden="true">
+      <div class="band-track">
+        <span>Regionales Rindfleisch</span><span>Frisch gesmasht</span><span>Heiß &amp; kross</span><span>Hauspommes</span><span>Frisch frittiert</span><span>Goldgelb &amp; knusprig</span>
+        <span>Regionales Rindfleisch</span><span>Frisch gesmasht</span><span>Heiß &amp; kross</span><span>Hauspommes</span><span>Frisch frittiert</span><span>Goldgelb &amp; knusprig</span>
       </div>
-    </section>
+    </div>
 
-    <!-- ===================== SPEISEKARTE ===================== -->
-    <!-- ANPASSEN: Gerichte, Beschreibungen und Preise. Die Preise sind Beispielwerte. -->
-    <section class="section menu" id="speisekarte">
+    <!-- ===================== BURGER ===================== -->
+    <!-- ANPASSEN: Burger, Beschreibungen und Preise.
+         Gericht freischalten: bei <li class="item is-soon"> das "is-soon" entfernen
+         und den Block <span class="soon">…</span> durch die Preise ersetzen (wie bei Nr. 1). -->
+    <section class="section menu" id="burger">
       <div class="container">
-        <header class="section-head">
-          <p class="eyebrow">Speisekarte</p>
-          <h2>Was heute in die Pfanne kommt</h2>
-          <p class="section-sub">Deftige Klassiker, knusprige Beilagen und auch etwas ohne Fleisch.</p>
+        <header class="menu-head">
+          <div>
+            <p class="eyebrow">Smash · Chicken · Veggie</p>
+            <h2 class="menu-title">
+              Burger
+              <svg class="menu-icon" viewBox="0 0 64 56" aria-hidden="true">
+                <path d="M6 24C6 11 18 4 32 4s26 7 26 20z" fill="currentColor"/>
+                <g fill="#0C0A08"><ellipse cx="22" cy="13" rx="2.4" ry="1.4"/><ellipse cx="32" cy="9" rx="2.4" ry="1.4"/><ellipse cx="42" cy="13" rx="2.4" ry="1.4"/><ellipse cx="27" cy="18" rx="2.4" ry="1.4"/><ellipse cx="38" cy="18" rx="2.4" ry="1.4"/></g>
+                <path d="M4 31c4-4 8 4 12 0s8 4 12 0 8 4 12 0 8 4 12 0 8 4 8 0" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                <rect x="6" y="36" width="52" height="7" rx="3.5" fill="currentColor"/>
+                <path d="M6 46h52v1a7 7 0 0 1-7 7H13a7 7 0 0 1-7-7z" fill="currentColor"/>
+              </svg>
+            </h2>
+            <p class="menu-intro">
+              <strong>Regionales Rindfleisch</strong> – auf der heißen Platte flach gedrückt („gesmasht“),
+              dadurch schön kross. Im weichen Potato-Bun mit Gewürzgurken; die Chicken-Burger kommen im Brioche-Bun.
+            </p>
+          </div>
+          <ul class="hand-notes" aria-label="Das macht unsere Burger aus">
+            <li>Regionales Rindfleisch</li>
+            <li>Frisch gesmasht</li>
+            <li>Heiß &amp; kross</li>
+          </ul>
         </header>
 
-        <div class="menu-filter" role="group" aria-label="Speisekarte filtern">
-          <button type="button" class="chip" data-filter="alle" aria-pressed="true">Alle</button>
-          <button type="button" class="chip" data-filter="pfanne" aria-pressed="false">Pfanne &amp; Grill</button>
-          <button type="button" class="chip" data-filter="klassiker" aria-pressed="false">Klassiker</button>
-          <button type="button" class="chip" data-filter="vegetarisch" aria-pressed="false">Vegetarisch</button>
-          <button type="button" class="chip" data-filter="beilagen" aria-pressed="false">Beilagen</button>
-          <button type="button" class="chip" data-filter="getraenke" aria-pressed="false">Getränke</button>
-        </div>
+        <ol class="items">
+          <li class="item">
+            <span class="item-no">1</span>
+            <div class="item-body">
+              <h3>Original Smash Burger</h3>
+              <p class="item-sub">Classic Cheeseburger</p>
+              <p class="item-desc">Rind-Patty, Cheddar, Salat, Zwiebelwürfel, Gewürzgurken und Burgersoße</p>
+              <p class="note">Hier fängt alles an!</p>
+            </div>
+            <div class="prices">
+              <span class="price-box"><small>Double</small>9,90&nbsp;€</span>
+              <span class="price-box"><small>Single</small>6,90&nbsp;€</span>
+            </div>
+          </li>
 
-        <aside class="lunch">
-          <div class="lunch-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-          </div>
-          <div class="lunch-text">
-            <h3>Mittagstisch</h3>
-            <p>Dienstag bis Freitag, 11:00–14:00 Uhr: wechselndes Tagesgericht inklusive Softdrink.</p>
-          </div>
-          <p class="lunch-price"><span>ab</span> 9,90&nbsp;€</p>
+          <li class="item">
+            <span class="item-no">2</span>
+            <div class="item-body">
+              <h3>Oklahoma Smash Burger</h3>
+              <p class="item-sub">Oklahoma Smash</p>
+              <p class="item-desc">Rind-Patty, fein gehobelte Zwiebeln direkt auf der Platte mitgebraten, Cheddar, Salat, Gewürzgurken und Burgersoße</p>
+            </div>
+            <div class="prices">
+              <span class="price-box"><small>Double</small>10,90&nbsp;€</span>
+              <span class="price-box"><small>Single</small>7,90&nbsp;€</span>
+            </div>
+          </li>
+
+          <li class="item">
+            <span class="item-no">3</span>
+            <div class="item-body">
+              <h3>Der Scharfmacher <span class="tag tag-hot">Scharf</span></h3>
+              <p class="item-sub">Chili Cheese Smash</p>
+              <p class="item-desc">Rind-Patty, Chili-Cheese-Soße, Cheddar, Jalapeños, Salat, Gewürzgurken und karamellisierte Zwiebeln</p>
+              <p class="note">Nur für Mutige!</p>
+            </div>
+            <div class="prices">
+              <span class="price-box"><small>Double</small>11,90&nbsp;€</span>
+              <span class="price-box"><small>Single</small>8,90&nbsp;€</span>
+            </div>
+          </li>
+
+          <li class="item is-soon">
+            <span class="item-no">4</span>
+            <div class="item-body">
+              <h3>Der Grünschnabel <span class="tag tag-veg">Veggie</span></h3>
+              <p class="item-sub">Veggie Crunch</p>
+              <p class="item-desc">Knuspriges Gemüse-Patty nach Geheimrezept, Hirtenkäse, Rucola, karamellisierte Zwiebeln, Gewürzgurken und Joghurt-Kräutersoße</p>
+            </div>
+            <span class="soon">Bald verfügbar</span>
+          </li>
+
+          <li class="item">
+            <span class="item-no">5</span>
+            <div class="item-body">
+              <h3>Bacon Cheeseburger</h3>
+              <p class="item-sub">Crispy Bacon Smash</p>
+              <p class="item-desc">Rind-Patty, Cheddar, knuspriger Speck, karamellisierte Zwiebeln, Salat, Gewürzgurken und Burgersoße</p>
+            </div>
+            <div class="prices">
+              <span class="price-box"><small>Double</small>11,90&nbsp;€</span>
+              <span class="price-box"><small>Single</small>8,90&nbsp;€</span>
+            </div>
+          </li>
+
+          <li class="item is-soon">
+            <span class="item-no">6</span>
+            <div class="item-body">
+              <h3>Guac ’n’ Roll <span class="tag tag-veg">Veggie</span></h3>
+              <p class="item-sub">Veggie Avocado</p>
+              <p class="item-desc">Veggie-Patty, Guacamole, Hirtenkäse, Tomate, rote Zwiebel, Salat, Gewürzgurken und Special-Soße</p>
+            </div>
+            <span class="soon">Bald verfügbar</span>
+          </li>
+
+          <li class="item is-soon">
+            <span class="item-no">7</span>
+            <div class="item-body">
+              <h3>Knusper-Gockel</h3>
+              <p class="item-sub">Crispy Chicken Burger</p>
+              <p class="item-desc">Frisch paniertes Hähnchenbrustfilet, Cheddar, Salat, Tomate, Gewürzgurken und Honig-Senf-Soße</p>
+            </div>
+            <span class="soon">Bald verfügbar</span>
+          </li>
+
+          <li class="item is-soon">
+            <span class="item-no">8</span>
+            <div class="item-body">
+              <h3>Gockel Guapo</h3>
+              <p class="item-sub">Hot Honey Chicken</p>
+              <p class="item-desc">Gebratenes Hähnchenfilet mit Hot-Honey-Glasur, Krautsalat, Gewürzgurken und Special-Soße</p>
+            </div>
+            <span class="soon">Bald verfügbar</span>
+          </li>
+        </ol>
+
+        <aside class="extras">
+          <p class="extras-title">Noch mehr drauf? <small>Auch auf Pommes</small></p>
+          <ul class="extras-list">
+            <li><span>Jalapeños</span><span>+1,00&nbsp;€</span></li>
+            <li><span>Speck</span><span>+2,50&nbsp;€</span></li>
+            <li><span>Avocado</span><span>+2,50&nbsp;€</span></li>
+            <li><span>Guacamole</span><span>+3,50&nbsp;€</span></li>
+          </ul>
         </aside>
+      </div>
+    </section>
 
-        <div class="menu-grid">
-
-          <section class="menu-group" data-cat="pfanne">
-            <h3>Pfanne &amp; Grill</h3>
-            <ul class="dish-list">
-              <li class="dish">
-                <div class="dish-head"><h4>Currywurst mit Pommes <span class="tag">Beliebt</span></h4><span class="dots"></span><span class="price">8,90&nbsp;€</span></div>
-                <p>Hausgemachte Currysoße, auf Wunsch extra scharf</p>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Bratwurst im Brötchen</h4><span class="dots"></span><span class="price">4,50&nbsp;€</span></div>
-                <p>Grobe Bratwurst vom Grill, mit Senf oder Ketchup</p>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Halbes Brathähnchen</h4><span class="dots"></span><span class="price">11,90&nbsp;€</span></div>
-                <p>Knusprig gewürzt, mit Pommes oder Kartoffelsalat</p>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Leberkäse mit Spiegelei</h4><span class="dots"></span><span class="price">10,50&nbsp;€</span></div>
-                <p>Dazu Bratkartoffeln und süßer Senf</p>
-              </li>
-            </ul>
-          </section>
-
-          <section class="menu-group" data-cat="klassiker">
-            <h3>Klassiker</h3>
-            <ul class="dish-list">
-              <li class="dish">
-                <div class="dish-head"><h4>Schnitzel Wiener Art <span class="tag">Beliebt</span></h4><span class="dots"></span><span class="price">14,90&nbsp;€</span></div>
-                <p>Goldbraun paniert, mit Bratkartoffeln und Zitrone</p>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Jägerschnitzel</h4><span class="dots"></span><span class="price">15,50&nbsp;€</span></div>
-                <p>Mit Champignon-Rahmsoße und Pommes frites</p>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Hausgemachte Frikadellen</h4><span class="dots"></span><span class="price">10,90&nbsp;€</span></div>
-                <p>Zwei Stück, mit Kartoffelsalat und Senf</p>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Bauernfrühstück</h4><span class="dots"></span><span class="price">11,50&nbsp;€</span></div>
-                <p>Bratkartoffeln mit Ei, Speck, Zwiebeln und Gewürzgurke</p>
-              </li>
-            </ul>
-          </section>
-
-          <section class="menu-group" data-cat="vegetarisch">
-            <h3>Vegetarisch</h3>
-            <ul class="dish-list">
-              <li class="dish">
-                <div class="dish-head"><h4>Kartoffelpuffer <span class="tag tag-veg">Veggie</span></h4><span class="dots"></span><span class="price">8,50&nbsp;€</span></div>
-                <p>Drei Stück, knusprig ausgebacken, mit Apfelmus</p>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Gemüsepfanne <span class="tag tag-veg">Veggie</span></h4><span class="dots"></span><span class="price">11,90&nbsp;€</span></div>
-                <p>Saisongemüse mit Bratkartoffeln und Kräuterquark</p>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Bratkartoffeln mit Spiegelei <span class="tag tag-veg">Veggie</span></h4><span class="dots"></span><span class="price">9,50&nbsp;€</span></div>
-                <p>Mit zwei Spiegeleiern und Gewürzgurke</p>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Käsespätzle <span class="tag tag-veg">Veggie</span></h4><span class="dots"></span><span class="price">11,50&nbsp;€</span></div>
-                <p>In der Pfanne geschwenkt, mit Röstzwiebeln</p>
-              </li>
-            </ul>
-          </section>
-
-          <section class="menu-group" data-cat="beilagen">
-            <h3>Beilagen &amp; Extras</h3>
-            <ul class="dish-list">
-              <li class="dish">
-                <div class="dish-head"><h4>Pommes frites</h4><span class="dots"></span><span class="price">3,90&nbsp;€</span></div>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Bratkartoffeln</h4><span class="dots"></span><span class="price">4,50&nbsp;€</span></div>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Kartoffelsalat</h4><span class="dots"></span><span class="price">3,90&nbsp;€</span></div>
-                <p>Hausgemacht, nach Omas Rezept</p>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Krautsalat</h4><span class="dots"></span><span class="price">3,50&nbsp;€</span></div>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Soße oder Dip extra</h4><span class="dots"></span><span class="price">0,90&nbsp;€</span></div>
-                <p>Curry, Jäger, Knoblauch oder Kräuterquark</p>
-              </li>
-            </ul>
-          </section>
-
-          <section class="menu-group" data-cat="getraenke">
-            <h3>Getränke</h3>
-            <ul class="dish-list">
-              <li class="dish">
-                <div class="dish-head"><h4>Softdrinks <small>0,33 l</small></h4><span class="dots"></span><span class="price">2,90&nbsp;€</span></div>
-                <p>Cola, Fanta, Sprite, Spezi</p>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Mineralwasser <small>0,5 l</small></h4><span class="dots"></span><span class="price">2,50&nbsp;€</span></div>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Apfelschorle <small>0,5 l</small></h4><span class="dots"></span><span class="price">3,20&nbsp;€</span></div>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Pils vom Fass <small>0,3 l</small></h4><span class="dots"></span><span class="price">3,50&nbsp;€</span></div>
-              </li>
-              <li class="dish">
-                <div class="dish-head"><h4>Kaffee</h4><span class="dots"></span><span class="price">2,40&nbsp;€</span></div>
-              </li>
-            </ul>
-          </section>
-
+    <!-- ===================== GALERIE ===================== -->
+    <section class="gallery" aria-label="Fotos aus der Bratküche">
+      <div class="container">
+        <div class="gallery-grid">
+          <figure>
+            <picture>
+              <source srcset="assets/img/burger-zubereitung.webp" type="image/webp">
+              <img src="assets/img/burger-zubereitung.jpg" width="1000" height="1333" loading="lazy" alt="Double Smash Burger mit Cheddar, Salat und Tomate, daneben das Bun mit Burgersoße und Gewürzgurken">
+            </picture>
+            <figcaption>Frisch von der Platte</figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source srcset="assets/img/burger-double.webp" type="image/webp">
+              <img src="assets/img/burger-double.jpg" width="1000" height="1333" loading="lazy" alt="Double Smash Burger mit krossen Patties und Cheddar in Burgerpapier">
+            </picture>
+            <figcaption>Doppelt gesmasht</figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source srcset="assets/img/burger-kueche.webp" type="image/webp">
+              <img src="assets/img/burger-kueche.jpg" width="1000" height="1333" loading="lazy" alt="Smash Burger mit Cheddar wird in der Küche der Bratküche serviert">
+            </picture>
+            <figcaption>Direkt auf die Hand</figcaption>
+          </figure>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== LOADED FRIES ===================== -->
+    <section class="section menu menu-fries" id="loaded-fries">
+      <div class="container">
+        <header class="menu-head">
+          <div>
+            <p class="eyebrow">Frisch frittiert · Goldgelb &amp; knusprig</p>
+            <h2 class="menu-title">
+              Loaded Fries
+              <svg class="menu-icon" viewBox="0 0 56 64" aria-hidden="true">
+                <g fill="currentColor">
+                  <rect x="12" y="4" width="7" height="34" rx="2" transform="rotate(-8 15 21)"/>
+                  <rect x="21" y="1" width="7" height="36" rx="2"/>
+                  <rect x="30" y="3" width="7" height="34" rx="2" transform="rotate(6 33 20)"/>
+                  <rect x="38" y="7" width="7" height="30" rx="2" transform="rotate(12 41 22)"/>
+                </g>
+                <path d="M6 26h44l-5 33a4 4 0 0 1-4 3H15a4 4 0 0 1-4-3z" fill="currentColor" stroke="#0C0A08" stroke-width="2.5"/>
+                <path d="M19 40l9 7 9-7" stroke="#0C0A08" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </h2>
+            <p class="menu-intro">
+              Goldgelb und knusprig, frisch für dich frittiert.
+              Pur, zum Burger oder mit Belag als Hauptgericht.
+            </p>
+          </div>
+          <ul class="hand-notes" aria-label="Das macht unsere Pommes aus">
+            <li>Frisch frittiert</li>
+            <li>Goldgelb &amp; knusprig</li>
+            <li>Pur oder mit Belag</li>
+          </ul>
+        </header>
+
+        <div class="fries-base">
+          <span class="item-no">9</span>
+          <div class="fries-base-body">
+            <ul class="base-list">
+              <li><h3>Pommes Kracher</h3><span class="dots"></span><span class="base-price">4,90&nbsp;€</span></li>
+              <li><h3>Süßkartoffel-Pommes</h3><span class="dots"></span><span class="base-price">5,90&nbsp;€</span></li>
+            </ul>
+            <p class="toppings">
+              <span class="toppings-label">Drüber</span>
+              <span class="topping">Käsesoße <b>+2,00&nbsp;€</b></span>
+              <span class="topping">Chili-Cheese-Soße <b>+2,50&nbsp;€</b></span>
+              <span class="topping">Knuspriger Speck <b>+2,50&nbsp;€</b></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="subhead">
+          <p class="eyebrow">Pommes mit Belag</p>
+          <h3 class="subhead-title">Mach mehr draus!</h3>
+          <p class="note note-inline">Pommes + Belag = Hauptgericht</p>
+        </div>
+
+        <ol class="items">
+          <li class="item">
+            <span class="item-no">10</span>
+            <div class="item-body">
+              <h3>Parmesan Butterfly</h3>
+              <p class="item-sub">Parmesan &amp; Petersilie</p>
+              <p class="item-desc">Pommes mit frisch geriebenem Parmesan und Petersilie</p>
+            </div>
+            <div class="prices"><span class="price-box price-single">6,90&nbsp;€</span></div>
+          </li>
+
+          <li class="item">
+            <span class="item-no">11</span>
+            <div class="item-body">
+              <h3>Specktakulär</h3>
+              <p class="item-sub">Cheese &amp; Bacon</p>
+              <p class="item-desc">Käsesoße, knuspriger Speck und karamellisierte Zwiebeln</p>
+            </div>
+            <div class="prices"><span class="price-box price-single">8,90&nbsp;€</span></div>
+          </li>
+
+          <li class="item">
+            <span class="item-no">12</span>
+            <div class="item-body">
+              <h3>Chili Cheese Pommes <span class="tag tag-hot">Scharf</span></h3>
+              <p class="item-sub">Rinderhack &amp; scharfe Käsesoße</p>
+              <p class="item-desc">Rinderhack, Chili-Cheese-Soße, Jalapeños und Frühlingszwiebeln</p>
+            </div>
+            <div class="prices"><span class="price-box price-single">9,90&nbsp;€</span></div>
+          </li>
+
+          <li class="item is-soon">
+            <span class="item-no">13</span>
+            <div class="item-body">
+              <h3>Fata Morgana <span class="tag tag-veg">Veggie</span></h3>
+              <p class="item-sub">Guacamole &amp; Hirtenkäse</p>
+              <p class="item-desc">Guacamole, Hirtenkäse, Tomate, Special-Soße und frische Kräuter</p>
+            </div>
+            <span class="soon">Bald verfügbar</span>
+          </li>
+
+          <li class="item is-soon">
+            <span class="item-no">14</span>
+            <div class="item-body">
+              <h3>Pommes Spezial</h3>
+              <p class="item-sub">Rinderhack &amp; Käsesoße</p>
+              <p class="item-desc">Rinderhack mit Zwiebeln und Honig-Paprika gebraten, warme Käsesoße, frische Kräuter</p>
+            </div>
+            <span class="soon">Bald verfügbar</span>
+          </li>
+
+          <li class="item is-soon">
+            <span class="item-no">15</span>
+            <div class="item-body">
+              <h3>Hendl-Haufen</h3>
+              <p class="item-sub">Crispy Chicken Fries</p>
+              <p class="item-desc">Panierte Chicken-Stücke, Käsesoße, Gewürzgurken, Frühlingszwiebeln</p>
+              <p class="note">Macht richtig satt!</p>
+            </div>
+            <span class="soon">Bald verfügbar</span>
+          </li>
+        </ol>
 
         <p class="menu-note">
-          Alle Preise in Euro inkl. MwSt. Informationen zu Allergenen und Zusatzstoffen
-          erhalten Sie gerne bei unserem Team.
+          Alle Preise in Euro inkl. MwSt. · Süßkartoffel statt Pommes: 1,00&nbsp;€ Aufpreis.<br>
+          <strong>Allergene &amp; Zusatzstoffe:</strong> Frag unser Team – die schriftliche Übersicht liegt zur Einsicht bereit.
         </p>
       </div>
     </section>
 
     <!-- ===================== ÜBER UNS ===================== -->
-    <!-- ANPASSEN: Eure eigene Geschichte -->
     <section class="section about" id="ueber-uns">
       <div class="container about-grid">
+        <figure class="about-logo">
+          <picture>
+            <source srcset="assets/img/logo-schild.webp" type="image/webp">
+            <img src="assets/img/logo-schild.jpg" width="900" height="900" loading="lazy" alt="Leuchtschild der Bratküche Erlangen: Smash Burger und Hauspommes">
+          </picture>
+        </figure>
         <div class="about-copy">
           <p class="eyebrow">Über uns</p>
-          <h2>Ehrliches Essen. Ohne Schnickschnack.</h2>
+          <h2 class="section-title">Zwei Dinge. Richtig gut.</h2>
           <p>
-            In der Bratküche dreht sich alles um eine heiße Pfanne und gute Zutaten.
-            Wir braten so, wie man es von zu Hause kennt: mit Butterschmalz,
-            frischen Zwiebeln und genug Zeit, damit alles schön knusprig wird.
+            Bei uns gibt’s genau das, worauf wir selbst am meisten Lust haben:
+            <strong>Smash Burger und Pommes.</strong> Keine Riesenkarte, kein Schnickschnack –
+            dafür alles frisch gemacht.
           </p>
           <p>
-            Ob schnelle Currywurst in der Mittagspause, ein ordentliches Schnitzel
-            am Abend oder Bratkartoffeln für die ganze Familie –
-            bei uns bekommen Sie eine Portion, die satt macht, zu einem fairen Preis.
+            Regionales Rindfleisch kommt auf die heiße Platte und wird flach gedrückt.
+            So entsteht die krosse, würzige Kruste, die einen echten Smash Burger ausmacht.
+            Unsere Hauspommes werden frisch für dich frittiert – goldgelb, knusprig und
+            auf Wunsch richtig beladen.
           </p>
-          <p class="signature">Ihr Team der Bratküche</p>
+          <p class="signature">Dein Team der Bratküche</p>
         </div>
-
-        <figure class="about-card">
-          <blockquote>
-            „Eine gute Pfanne braucht drei Dinge: Hitze, Geduld und gute Zutaten.“
-          </blockquote>
-          <ul class="promise">
-            <li>Täglich frisch zubereitet</li>
-            <li>Soßen und Salate aus eigener Herstellung</li>
-            <li>Große Portionen, faire Preise</li>
-            <li>Schnell, freundlich, unkompliziert</li>
-          </ul>
-        </figure>
       </div>
     </section>
 
-    <!-- ===================== BESUCH: ZEITEN & KONTAKT ===================== -->
-    <section class="section visit">
+    <!-- ===================== BESUCH ===================== -->
+    <section class="section visit" id="besuch">
       <div class="container">
-        <header class="section-head">
-          <p class="eyebrow">Besuchen Sie uns</p>
-          <h2>Wir freuen uns auf Sie</h2>
+        <header class="visit-head">
+          <p class="eyebrow">Lachnerstraße 2 · Erlangen</p>
+          <h2 class="section-title">Komm vorbei</h2>
         </header>
 
         <div class="visit-grid">
           <!-- ANPASSEN: Öffnungszeiten.
                data-day: 0 = Sonntag, 1 = Montag, … 6 = Samstag
-               data-open / data-close im Format HH:MM. Ruhetag: beide weglassen.
-               Daraus berechnet die Seite automatisch „Jetzt geöffnet“ / „Geschlossen“. -->
+               data-hours: Zeitfenster „HH:MM-HH:MM“, mehrere mit Komma trennen. Ruhetag: data-hours weglassen.
+               Daraus berechnet die Seite automatisch „Jetzt geöffnet“, „Mittagspause“ oder „Geschlossen“. -->
           <article class="card hours" id="zeiten">
             <h3>Öffnungszeiten</h3>
-            <p class="status status-light" data-status aria-live="polite">
+            <p class="status" data-status aria-live="polite">
               <span class="status-dot" aria-hidden="true"></span>
-              <span class="status-text">Unsere Zeiten im Überblick</span>
+              <span class="status-text">Mo–Fr 11–15 &amp; 17–20 Uhr</span>
             </p>
             <table class="hours-table">
               <caption class="visually-hidden">Öffnungszeiten der Bratküche</caption>
               <tbody>
-                <tr data-day="1"><th scope="row">Montag</th><td>Ruhetag</td></tr>
-                <tr data-day="2" data-open="11:00" data-close="21:00"><th scope="row">Dienstag</th><td>11:00 – 21:00</td></tr>
-                <tr data-day="3" data-open="11:00" data-close="21:00"><th scope="row">Mittwoch</th><td>11:00 – 21:00</td></tr>
-                <tr data-day="4" data-open="11:00" data-close="21:00"><th scope="row">Donnerstag</th><td>11:00 – 21:00</td></tr>
-                <tr data-day="5" data-open="11:00" data-close="22:00"><th scope="row">Freitag</th><td>11:00 – 22:00</td></tr>
-                <tr data-day="6" data-open="12:00" data-close="22:00"><th scope="row">Samstag</th><td>12:00 – 22:00</td></tr>
-                <tr data-day="0" data-open="12:00" data-close="20:00"><th scope="row">Sonntag</th><td>12:00 – 20:00</td></tr>
+                <tr data-day="1" data-hours="11:00-15:00,17:00-20:00"><th scope="row">Montag</th><td><span>11:00–15:00</span> <span>17:00–20:00</span></td></tr>
+                <tr data-day="2" data-hours="11:00-15:00,17:00-20:00"><th scope="row">Dienstag</th><td><span>11:00–15:00</span> <span>17:00–20:00</span></td></tr>
+                <tr data-day="3" data-hours="11:00-15:00,17:00-20:00"><th scope="row">Mittwoch</th><td><span>11:00–15:00</span> <span>17:00–20:00</span></td></tr>
+                <tr data-day="4" data-hours="11:00-15:00,17:00-20:00"><th scope="row">Donnerstag</th><td><span>11:00–15:00</span> <span>17:00–20:00</span></td></tr>
+                <tr data-day="5" data-hours="11:00-15:00,17:00-20:00"><th scope="row">Freitag</th><td><span>11:00–15:00</span> <span>17:00–20:00</span></td></tr>
+                <tr data-day="6"><th scope="row">Samstag</th><td>Geschlossen</td></tr>
+                <tr data-day="0"><th scope="row">Sonntag</th><td>Geschlossen</td></tr>
               </tbody>
             </table>
             <p class="small-print">An Feiertagen können die Zeiten abweichen.</p>
           </article>
 
-          <!-- ANPASSEN: Adresse, Telefon, E-Mail -->
           <article class="card contact" id="kontakt">
-            <h3>Kontakt &amp; Anfahrt</h3>
+            <h3>Anfahrt &amp; Kontakt</h3>
             <ul class="contact-list">
               <li>
                 <span class="contact-icon" aria-hidden="true">
@@ -457,33 +485,34 @@
                 </span>
                 <div>
                   <span class="contact-label">Adresse</span>
-                  <address>Bratküche<br>Musterstraße 12<br>12345 Musterstadt</address>
+                  <address>Die Bratküche<br>Lachnerstraße 2<br>91058 Erlangen</address>
                 </div>
               </li>
+              <!-- ANPASSEN: Telefonnummer eintragen und Kommentar-Zeichen entfernen
               <li>
                 <span class="contact-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
                 </span>
                 <div>
-                  <span class="contact-label">Telefon &amp; Bestellung</span>
-                  <a href="tel:+49123456789">0123 456789</a>
+                  <span class="contact-label">Telefon</span>
+                  <a href="tel:+499131000000">09131 000000</a>
                 </div>
               </li>
+              -->
               <li>
                 <span class="contact-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4 7.3V17h16V7.3z" fill="currentColor"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12a1.5 1.5 0 0 1-1.5 1.4h-9A1.5 1.5 0 0 1 6 20z" fill="currentColor"/><path d="M9 10V6a3 3 0 0 1 6 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
                 </span>
                 <div>
-                  <span class="contact-label">E-Mail</span>
-                  <a href="mailto:kontakt@ihre-domain.de">kontakt@ihre-domain.de</a>
+                  <span class="contact-label">Vor Ort &amp; zum Mitnehmen</span>
+                  <p>Einfach vorbeikommen und bestellen – wir smashen frisch für dich.</p>
                 </div>
               </li>
             </ul>
             <div class="contact-cta">
-              <a class="btn btn-flame" href="tel:+49123456789">Jetzt anrufen</a>
-              <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Musterstra%C3%9Fe%2012%2C%2012345%20Musterstadt" target="_blank" rel="noopener">Route planen</a>
+              <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&amp;query=Die%20Bratk%C3%BCche%2C%20Lachnerstra%C3%9Fe%202%2C%2091058%20Erlangen" target="_blank" rel="noopener">Route planen</a>
             </div>
-            <p class="small-print">Der Link „Route planen“ öffnet Google Maps in einem neuen Fenster.</p>
+            <p class="small-print">„Route planen“ öffnet Google Maps in einem neuen Fenster.</p>
           </article>
         </div>
       </div>
@@ -495,22 +524,25 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="brand-name">Bratküche</span>
-        <p>Heiß aus der Pfanne – vor Ort und zum Mitnehmen.</p>
+        <img src="assets/img/logo-96.png" width="56" height="56" alt="" loading="lazy">
+        <div>
+          <span class="brand-name"><small>Die</small> Bratküche</span>
+          <p>Smash Burger &amp; Hauspommes<br>Lachnerstraße 2 · 91058 Erlangen</p>
+        </div>
       </div>
       <nav class="footer-nav" aria-label="Fußzeile">
-        <a href="#speisekarte">Speisekarte</a>
+        <a href="#burger">Burger</a>
+        <a href="#loaded-fries">Loaded Fries</a>
         <a href="#ueber-uns">Über uns</a>
-        <a href="#zeiten">Öffnungszeiten</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="#besuch">Öffnungszeiten</a>
       </nav>
-      <nav class="footer-legal" aria-label="Rechtliches">
+      <nav class="footer-nav" aria-label="Rechtliches">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
       </nav>
     </div>
     <div class="container footer-bottom">
-      <p>© <span data-year>2026</span> Bratküche</p>
+      <p>© <span data-year>2026</span> Die Bratküche Erlangen</p>
     </div>
   </footer>
 
