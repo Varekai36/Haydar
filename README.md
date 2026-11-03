@@ -1,7 +1,7 @@
 # Die Bratküche Erlangen – Website
 
 Website für **Die Bratküche**: Smash Burger & Loaded Fries, Lachnerstraße 2, 91058 Erlangen-Tennenlohe.
-Öffnungszeiten: Mo–Do 11–15 & 17–20 Uhr, Fr 11–15 Uhr. Telefon: 0177 6564204.
+Öffnungszeiten: Mo–Do 11–15 & 17–20 Uhr, Fr 11–15 Uhr. Telefon: 0177 6564204. E-Mail: diebratkueche@proton.me.
 
 Die Seite besteht nur aus HTML, CSS und etwas JavaScript. Es gibt keinen Build-Schritt und keine Abhängigkeiten.
 Sie läuft direkt auf GitHub Pages oder bei jedem anderen Webhoster.
@@ -20,8 +20,8 @@ Sie läuft direkt auf GitHub Pages oder bei jedem anderen Webhoster.
 
 ## Noch offen
 
-- [ ] **Impressum:** Inhaber-Name, E-Mail und gegebenenfalls USt-IdNr. eintragen, dann den gelben Hinweis „Vorlage“ löschen.
-- [ ] **Datenschutz:** Inhaber-Name und E-Mail eintragen und den Hinweis löschen. Bitte rechtlich prüfen lassen.
+- [ ] **USt-IdNr. (falls vorhanden):** In `impressum.html` ist ein auskommentierter Block vorbereitet. Nummer eintragen und die Kommentar-Zeichen entfernen.
+- [ ] **Rechtstexte prüfen lassen:** Impressum und Datenschutzerklärung sind ausgefüllt, aber keine Rechtsberatung. Die Datenschutzerklärung geht von Hosting über GitHub Pages aus. Bei einem anderen Hoster oder neuen Funktionen muss sie angepasst werden.
 - [ ] **Eigene Domain:** Sobald die Domain feststeht, bei `og:image` die volle Adresse eintragen, z. B. `https://www.die-bratkueche.de/assets/img/og-image.jpg`. Dann zeigen WhatsApp, Instagram und andere Dienste beim Teilen das Logo als Vorschaubild.
 
 ## Speisekarte pflegen
