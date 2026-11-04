@@ -22,7 +22,8 @@ Sie läuft direkt auf GitHub Pages oder bei jedem anderen Webhoster.
 
 - [ ] **USt-IdNr. (falls vorhanden):** In `impressum.html` ist ein auskommentierter Block vorbereitet. Nummer eintragen und die Kommentar-Zeichen entfernen.
 - [ ] **Rechtstexte prüfen lassen:** Impressum und Datenschutzerklärung sind ausgefüllt, aber keine Rechtsberatung. Die Datenschutzerklärung geht von Hosting über GitHub Pages aus. Bei einem anderen Hoster oder neuen Funktionen muss sie angepasst werden.
-- [ ] **Eigene Domain:** Sobald die Domain feststeht, bei `og:image` die volle Adresse eintragen, z. B. `https://www.die-bratkueche.de/assets/img/og-image.jpg`. Dann zeigen WhatsApp, Instagram und andere Dienste beim Teilen das Logo als Vorschaubild.
+- [ ] **GitHub Pages einschalten:** siehe unten. Die Seite ist schon auf die Adresse `https://varekai36.github.io/Haydar/` eingestellt.
+- [ ] **Eigene Domain (optional):** Dann in `index.html` die Adressen bei `canonical`, `og:url`, `og:image` und in den strukturierten Daten ändern, außerdem in `robots.txt` und `sitemap.xml`.
 
 ## Speisekarte pflegen
 
@@ -83,8 +84,7 @@ python3 -m http.server 8000
 
 ## Mit GitHub Pages veröffentlichen
 
-1. Den Branch mit der Website in `main` mergen.
-2. Im Repository auf **Settings → Pages** gehen.
-3. Unter **Build and deployment** als Quelle **Deploy from a branch** wählen, dann Branch `main` und Ordner `/ (root)`.
-4. Nach ungefähr einer Minute ist die Seite unter `https://<benutzername>.github.io/<repository>/` erreichbar.
-5. Optional dort die eigene Domain eintragen.
+1. Im Repository auf **Settings → Pages** gehen.
+2. Unter **Build and deployment** als Quelle **Deploy from a branch** wählen, dann Branch `ccr-ab9e612f-l3nueo` (der Standard-Branch dieses Repos) und Ordner `/ (root)`, dann **Save**.
+3. Nach ungefähr einer Minute ist die Seite unter `https://varekai36.github.io/Haydar/` erreichbar.
+4. Optional dort die eigene Domain eintragen.

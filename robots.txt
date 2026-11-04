@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://varekai36.github.io/Haydar/sitemap.xml
