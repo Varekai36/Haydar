@@ -701,7 +701,7 @@ a.status-text:hover { text-decoration: underline; }
   grid-template-columns: 40px 1fr;
   gap: 16px;
   padding: 26px 28px;
-  margin-bottom: 56px;
+  margin-bottom: 24px;
   border: 1px solid var(--gold);
   border-radius: var(--radius);
   background:
@@ -771,40 +771,91 @@ a.status-text:hover { text-decoration: underline; }
 }
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: clamp(220px, 26vw, 360px);
+  gap: 16px;
 }
-.gallery figure { margin: 0; }
-.gallery img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+.gallery figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
   border-radius: var(--radius);
   border: 1px solid var(--line);
+  background: var(--surface);
+}
+.gallery figure.is-wide { grid-column: span 2; }
+.gallery picture, .gallery img { display: block; width: 100%; height: 100%; }
+.gallery img { object-fit: cover; transition: transform .6s ease; }
+.gallery figure::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 45%;
+  background: linear-gradient(180deg, transparent, rgba(12, 10, 8, .85));
+  pointer-events: none;
 }
 .gallery figcaption {
-  margin-top: 10px;
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 12px;
+  z-index: 1;
   font-family: var(--f-hand);
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   font-weight: 600;
+  line-height: 1.1;
   color: var(--gold-light);
-  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .6);
 }
-.gallery figure:nth-child(2) { transform: translateY(28px); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .gallery figure:hover img { transform: scale(1.04); }
+}
 @media (max-width: 760px) {
   .gallery-grid {
-    grid-template-columns: none;
-    grid-auto-flow: column;
-    grid-auto-columns: 74%;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    margin-inline: -16px;
-    padding: 0 16px 8px;
-    scrollbar-width: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 58vw;
+    gap: 12px;
   }
-  .gallery-grid::-webkit-scrollbar { display: none; }
-  .gallery figure { scroll-snap-align: center; }
-  .gallery figure:nth-child(2) { transform: none; }
+  .gallery figcaption { left: 12px; right: 12px; bottom: 8px; font-size: 1.35rem; }
+}
+
+/* Foto Loaded Fries */
+.fries-feature {
+  position: relative;
+  margin: 0 0 56px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 24px 70px rgba(238, 122, 44, .14);
+}
+.fries-feature picture, .fries-feature img { display: block; width: 100%; }
+.fries-feature img {
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+.feature-tag {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--gold-light), var(--gold));
+  color: #1A120A;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+}
+.feature-no { font-family: var(--f-display); font-size: 1rem; letter-spacing: .1em; }
+.feature-name { font-family: var(--f-serif); font-weight: 700; font-size: 1.15rem; }
+.feature-price { font-family: var(--f-display); font-size: 1.6rem; line-height: 1; }
+@media (max-width: 640px) {
+  .fries-feature { margin-bottom: 44px; }
+  .fries-feature img { aspect-ratio: 4 / 3; }
+  .feature-tag { left: 12px; right: 12px; bottom: 12px; justify-content: space-between; padding: 8px 14px; gap: 8px; }
+  .feature-name { font-size: 1rem; }
+  .feature-price { font-size: 1.35rem; }
 }
 
 /* ---------- Über uns ---------- */
