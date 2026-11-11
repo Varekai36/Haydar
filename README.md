@@ -17,6 +17,7 @@ Sie läuft direkt auf GitHub Pages oder bei jedem anderen Webhoster.
 | `assets/js/main.js` | Mobilmenü und Live-Anzeige „Jetzt geöffnet / Mittagspause / Geschlossen“ |
 | `assets/img/` | Fotos, Logo und Icons (verkleinert, ohne Standortdaten) |
 | `assets/fonts/` | Lokal gespeicherte Schriften (Bebas Neue, Fraunces, DM Sans, Caveat, Lizenz SIL OFL). Es wird nichts von Google geladen. |
+| `druck/` | Druckdateien, z. B. Fensterplakat „Currywurst mit Pommes“ (siehe `druck/README.md`) |
 
 ## Noch offen
 
