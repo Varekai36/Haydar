@@ -41,11 +41,11 @@ FONT_CACHE = os.path.join(HERE, ".fonts")
 # ---------------------------------------------------------------- Inhalte
 WORDMARK = "DIE BRATKÜCHE"
 CATEGORIES = ["SMASH BURGER", "LOADED FRIES", "CURRYWURST"]
-KICKER = "BERLINER ART  ·  HAUSGEMACHTE CURRYSOSSE"
+KICKER = "BERLINER ART"
 TITLE_1 = "Currywurst"
 TITLE_2 = "mit Pommes"
-DESCRIPTION = ["Currywurst ohne Darm mit hausgemachter Currysoße,",
-               "dazu goldgelbe Pommes."]
+HAND_NOTE = "mit hausgemachter Soße!"
+DESCRIPTION = ["Currywurst ohne Darm, dazu goldgelbe Pommes."]
 PRICE = "8,50"
 ORDER_URL = "https://su.onl/mfsri42"          # QR-Link vom Vorbestell-Flyer
 ADDRESS = "LACHNERSTRASSE 2  ·  91058 ERLANGEN"
@@ -72,7 +72,7 @@ FORMATS = {"A4": (210, 297), "A3": (297, 420), "A2": (420, 594),
 DESIGN_W, DESIGN_H = 420.0, 594.0
 
 # Fotoausschnitt (in mm, von oben links gemessen, im A2-Raster)
-PHOTO_X, PHOTO_Y, PHOTO_W, PHOTO_H, PHOTO_R = 30.0, 92.0, 360.0, 262.0, 6.0
+PHOTO_X, PHOTO_Y, PHOTO_W, PHOTO_H, PHOTO_R = 30.0, 92.0, 360.0, 250.0, 6.0
 
 
 # ---------------------------------------------------------------- Schriften
@@ -353,7 +353,7 @@ def draw_new_badge(p, cx=62.0, cy=104.0, r=40.0):
     c.restoreState()
 
 
-def draw_price_badge(p, cx=352.0, cy=338.0, r=42.0):
+def draw_price_badge(p, cx=352.0, cy=326.0, r=42.0):
     c = p.c
     c.saveState()
     c.translate(p.X(cx), p.Y(cy))
@@ -386,17 +386,40 @@ def draw_price_badge(p, cx=352.0, cy=338.0, r=42.0):
 
 
 def draw_title(p):
-    # Dachzeile mit Schalen-Symbol
-    fs, tr = 5.4, 0.26
-    p.text(KICKER, 210, 384, "DMSans-Bold", fs, GOLD, tracking=tr)
+    # Dachzeile, links und rechts eine Raute
+    fs, tr = 5.6, 0.32
+    w = p.text(KICKER, 210, 372, "DMSans-Bold", fs, GOLD, tracking=tr) / (p.s * mm)
+    for side in (-1, 1):
+        p.diamond(210 + side * (w / 2 + 9), 370.1, 1.4, EMBER)
 
-    s1 = p.fit_size(TITLE_1, "Fraunces-Black", 340, 76)
-    p.text(TITLE_1, 210, 442, "Fraunces-Black", s1, CREAM)
-    s2 = min(s1 * 0.66, p.fit_size(TITLE_2, "Fraunces-Bold", 300, 60))
-    p.text(TITLE_2, 210, 484, "Fraunces-Bold", s2, GOLD)
+    s1 = p.fit_size(TITLE_1, "Fraunces-Black", 330, 74)
+    p.text(TITLE_1, 210, 426, "Fraunces-Black", s1, CREAM)
+    s2 = min(s1 * 0.64, p.fit_size(TITLE_2, "Fraunces-Bold", 300, 60))
+    p.text(TITLE_2, 210, 466, "Fraunces-Bold", s2, GOLD)
+
+    # handgeschriebene Zeile wie die Notizen auf der Speisekarte, leicht schräg
+    c = p.c
+    size = p.fit_size(HAND_NOTE, "Caveat-Bold", 300, 21)
+    fs_pt = p.L(size)
+    tw = pdfmetrics.stringWidth(HAND_NOTE, "Caveat-Bold", fs_pt)
+    c.saveState()
+    c.translate(p.X(210), p.Y(494))
+    c.rotate(2.5)
+    c.setFillColor(EMBER)
+    c.setFont("Caveat-Bold", fs_pt)
+    c.drawString(-tw / 2, 0, HAND_NOTE)
+    # Pinselstrich darunter
+    c.setStrokeColor(EMBER)
+    c.setLineWidth(p.L(1.1))
+    c.setLineCap(1)
+    path = c.beginPath()
+    path.moveTo(-tw * 0.36, -p.L(5.2))
+    path.curveTo(-tw * 0.12, -p.L(6.6), tw * 0.16, -p.L(6.4), tw * 0.40, -p.L(4.6))
+    c.drawPath(path, stroke=1, fill=0)
+    c.restoreState()
 
     for i, line in enumerate(DESCRIPTION):
-        p.text(line, 210, 507 + i * 11.5, "DMSans-Regular", 8.4, MUTED)
+        p.text(line, 210, 519 + i * 11.5, "DMSans-Regular", 8.4, MUTED)
 
 
 def draw_footer(p):
